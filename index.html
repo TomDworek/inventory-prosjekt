@@ -3,21 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css"
-        href="style.css">
+    <title>Inventory</title>
+    <style>
+        .inventory {
+            background: #ad2f2f;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #000;
+            border-radius: 6px;
+            width: 200px;
+            height: 100px;
+        }
+        .hidden { display: none;}
+        button {
+            padding: 8px 12px;
+            font-size: 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
-    <button type="button" class="collapsible">Inventory</button>
+    <button id="openBtn">Åpne</button>
+    <button id="closeBtn">Lukk</button>
+    <div class="inventory hidden" id="inventory" onclick="MoveItem(this, 'dog', 'cat', 'mouse', 'goldfish', 'parrot', 'aligator')"></div>
     <div class="content">
-        <p>Dette endrer seg</p>
+        
         
     </div>
 
 
+<div>
+        <div id="dog" onclick="MoveItem(this, 'inventory')">dog</div>
+        <div id="cat" onclick="MoveItem(this, 'inventory')">cat</div>
+        <div id="mouse" onclick="MoveItem(this, 'inventory')">mouse</div>
+        <div id="goldfish" onclick="MoveItem(this, 'inventory')">goldfish</div>
+        <div id="parrot" onclick="MoveItem(this, 'inventory')">parrot</div>
+        <div id="aligator" onclick="MoveItem(this, 'inventory')">aligator</div>
+</div>
 <script>
+    const inventory = document.querySelector("#inventory");
+    const openBtn = document.querySelector("#openBtn");
+    const closeBtn = document.querySelector("#closeBtn");
+
+    openBtn.addEventListener("click", () => {
+        inventory.classList.remove("hidden");
+    });
+    closeBtn.addEventListener("click", () => {
+        inventory.classList.add("hidden");
+    });
 
 
+    
+function MoveItem(tagElement, alt1, alt2, alt3, alt4, alt5, alt6, alt7){
+            if(document.getElementById(alt1).innerHTML == ""){
+                document.getElementById(alt1).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = "";
+            }
+             if(document.getElementById(alt2).innerHTML == ""){
+                document.getElementById(alt2).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = "";
+            }
+             if(document.getElementById(alt3).innerHTML == ""){
+                document.getElementById(alt3).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = "";
+            }
+             if(document.getElementById(alt4).innerHTML == ""){
+                document.getElementById(alt4).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = "";
+            }
+             if(document.getElementById(alt5).innerHTML == ""){
+                document.getElementById(alt5).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = "";
+            }
+             if(document.getElementById(alt6).innerHTML == ""){
+                document.getElementById(alt6).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = "";
+            }
+             if(document.getElementById(alt7).innerHTML == ""){
+                document.getElementById(alt7).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = "";
+            }
+        }
 </script>
 
     
