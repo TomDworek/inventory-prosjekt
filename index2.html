@@ -4,25 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory</title>
-    <style>
-        .inventory {
-            background: #ad2f2f;
-            color: white;
-            padding: 10px;
-            margin-top: 10px;
-            border: 2px solid #000;
-            border-radius: 6px;
-            width: 200px;
-            height: 100px;
-        }
-        .hidden { display: none;}
-        button {
-            padding: 8px 12px;
-            font-size: 10px;
-            cursor: pointer;
-            margin: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <button id="openBtn">Åpne</button>
@@ -35,13 +17,16 @@
 
 
 <div>
-        <div id="dog" onclick="MoveItem(this, 'inventory')">dog</div>
-        <div id="cat" onclick="MoveItem(this, 'inventory')">cat</div>
+        <div id="dog" onclick="MoveItem(this, 'inventory')"><img src="https://pngimg.com/uploads/smiley/smiley_PNG36230.png" alt="">
+</div>
+        <div id="cat" onclick="MoveItem(this, 'inventory')"><img src="https://cdn3.emoji.gg/emojis/8426-cat.png"></div>
         <div id="mouse" onclick="MoveItem(this, 'inventory')">mouse</div>
-        <div id="goldfish" onclick="MoveItem(this, 'inventory')">gdoldfish</div>
+        <div id="goldfish" onclick="MoveItem(this, 'inventory')">goldfish</div>
         <div id="parrot" onclick="MoveItem(this, 'inventory')">parrot</div>
         <div id="aligator" onclick="MoveItem(this, 'inventory')">aligator</div>
 </div>
+
+    
 <script>
     const inventory = document.querySelector("#inventory");
     const openBtn = document.querySelector("#openBtn");
@@ -56,7 +41,7 @@
 
 
     
-function MoveItem(tagElement, alt1, alt2, alt3, alt4, alt5, alt6, alt7){
+function MoveItem(tagElement, alt1, alt2, alt3, alt4, alt5, alt6, alt7, targetId){
             if(document.getElementById(alt1).innerHTML == ""){
                 document.getElementById(alt1).innerHTML = tagElement.innerHTML;
                 tagElement.innerHTML = "";
