@@ -1,4 +1,4 @@
-.inventory {
+/* .inventory { 
             background: #ad2f2f;
             color: white;
             padding: 10px;
@@ -20,4 +20,54 @@ button {
 img     {
             width: 50px;
             height: 50px;
-        }
+        } */
+    .hidden {
+      display: none !important;
+    }
+
+    .inventory {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      grid-template-rows: repeat(3, 80px);
+      gap: 10px;
+      border: 2px solid black;
+      padding: 10px;
+      width: max-content;
+      background: #f4f4f4;
+      margin-top: 10px;
+    }
+
+    .slot {
+      width: 80px;
+      height: 80px;
+      border: 1px solid #aaa;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .slot img {
+      max-width: 70%;
+      max-height: 70%;
+      pointer-events: none;
+    }
+
+    .items {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .items div {
+      border: 1px solid #aaa;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .items img {
+      max-width: 50px;
+      max-height: 50px;
+      pointer-events: none;
+    }

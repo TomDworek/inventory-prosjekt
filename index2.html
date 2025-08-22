@@ -9,28 +9,34 @@
 <body>
     <button id="openBtn">Åpne</button>
     <button id="closeBtn">Lukk</button>
-    <div class="inventory hidden" id="inventory" onclick="MoveItem(this, 'dog', 'cat', 'mouse', 'goldfish', 'parrot', 'aligator')"></div>
-    <div class="content">
-        
-        
+    <div class="inventory hidden" id="inventory">
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+        <div class="slot" onclick="MoveItem(this)"></div>
+    </div>
+    <div class="items">
+        <div class="slot" onclick="MoveItem(this)"><img src="https://pngimg.com/uploads/smiley/smiley_PNG36230.png" alt=""></div>
+        <div class="slot" onclick="MoveItem(this)"><img src="https://cdn3.emoji.gg/emojis/8426-cat.png" alt=""></div>
+        <div class="slot" onclick="MoveItem(this)">mouse</div>
+        <div class="slot" onclick="MoveItem(this)">goldfish</div>
+        <div class="slot" onclick="MoveItem(this)">parrot</div>
+        <div class="slot" onclick="MoveItem(this)">aligator</div>
     </div>
 
-
-<div>
-        <div id="dog" onclick="MoveItem(this, 'inventory')"><img src="https://pngimg.com/uploads/smiley/smiley_PNG36230.png" alt="">
-</div>
-        <div id="cat" onclick="MoveItem(this, 'inventory')"><img src="https://cdn3.emoji.gg/emojis/8426-cat.png"></div>
-        <div id="mouse" onclick="MoveItem(this, 'inventory')">mouse</div>
-        <div id="goldfish" onclick="MoveItem(this, 'inventory')">goldfish</div>
-        <div id="parrot" onclick="MoveItem(this, 'inventory')">parrot</div>
-        <div id="aligator" onclick="MoveItem(this, 'inventory')">aligator</div>
-</div>
-
-    
 <script>
     const inventory = document.querySelector("#inventory");
     const openBtn = document.querySelector("#openBtn");
     const closeBtn = document.querySelector("#closeBtn");
+    
 
     openBtn.addEventListener("click", () => {
         inventory.classList.remove("hidden");
@@ -39,40 +45,25 @@
         inventory.classList.add("hidden");
     });
 
-
+    let selected = null;
     
-function MoveItem(tagElement, alt1, alt2, alt3, alt4, alt5, alt6, alt7, targetId){
-            if(document.getElementById(alt1).innerHTML == ""){
-                document.getElementById(alt1).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = "";
-            }
-             if(document.getElementById(alt2).innerHTML == ""){
-                document.getElementById(alt2).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = "";
-            }
-             if(document.getElementById(alt3).innerHTML == ""){
-                document.getElementById(alt3).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = "";
-            }
-             if(document.getElementById(alt4).innerHTML == ""){
-                document.getElementById(alt4).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = "";
-            }
-             if(document.getElementById(alt5).innerHTML == ""){
-                document.getElementById(alt5).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = "";
-            }
-             if(document.getElementById(alt6).innerHTML == ""){
-                document.getElementById(alt6).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = "";
-            }
-             if(document.getElementById(alt7).innerHTML == ""){
-                document.getElementById(alt7).innerHTML = tagElement.innerHTML;
-                tagElement.innerHTML = "";
-            }
-        }
+    function MoveItem(slot) {
+      if (selected === null && slot.innerHTML !== "") {
+        // Velger item
+        selected = slot;
+        slot.style.border = "2px solid red";
+      } else if (selected !== null && slot === selected) {
+        // Klikk samme igjen = avbryt
+        selected.style.border = "1px solid #aaa";
+        selected = null;
+      } else if (selected !== null && slot !== selected && slot.innerHTML === "") {
+        // Flytt item
+        slot.innerHTML = selected.innerHTML;
+        selected.innerHTML = "";
+        selected.style.border = "1px solid #aaa";
+        selected = null;
+      }
+    }
 </script>
-
-    
 </body>
 </html>
